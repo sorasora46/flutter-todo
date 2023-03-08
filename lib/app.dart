@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './pages/welcome_page.dart';
+import './constants/colors.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -6,11 +8,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: const Text("To-Do Application"),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(primary: accentColor, background: backgroundColor),
+        fontFamily: 'TiltNeon',
       ),
-      body: const Text("Hello, World!"),
-    ));
+      title: "To-Do Application",
+      home: const WelcomePage(),
+    );
   }
 }
