@@ -20,40 +20,41 @@ class WelcomePage extends StatelessWidget {
                 Text('To-Do Application')
               ],
             )),
-        body: Container(
-          margin: const EdgeInsets.all(10),
-          alignment: Alignment.center,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                  margin: const EdgeInsets.all(10),
-                  child: const Text(
-                    'Manage your team & everything with To-Do!',
-                    style: TextStyle(fontSize: 40),
-                  )),
-              Container(
-                  margin: const EdgeInsets.all(5),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  'Manage your team & everything with To-Do!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 35),
+                ),
+                SizedBox(
+                  height: 250,
                   child: Expanded(
                     child: Image.asset('assets/images/home_image.png'),
-                  )),
-              Container(
-                  margin: const EdgeInsets.all(10),
-                  child: const Text(
-                    'When you\'re overwhelmed by the amount of work you have on your plante, stop and rethink',
-                    style: TextStyle(fontSize: 20),
-                  )),
-              Container(
-                margin: const EdgeInsets.all(10),
-                child: SizedBox(
-                  height: 40,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Let\'s Start'),
                   ),
                 ),
-              ),
-            ],
+                const Text(
+                  'When you\'re overwhelmed by the amount of work you have on your plante, stop and rethink',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 20, bottom: 20),
+                  child: SizedBox(
+                    height: 40,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('Let\'s Start'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ));
   }
