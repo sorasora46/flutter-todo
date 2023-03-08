@@ -60,7 +60,8 @@ class _WelcomePageState extends State<WelcomePage> {
                             MaterialPageRoute(
                                 builder: (context) => const HomePage()));
                       },
-                      child: const Text('Let\'s Start'),
+                      child: const Text('Let\'s Start',
+                          style: TextStyle(fontWeight: FontWeight.bold)),
                     ),
                   ),
                 ),
