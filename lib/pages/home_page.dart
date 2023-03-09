@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/constants/colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,7 +8,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home page'),
+        backgroundColor: backgroundColor,
+        foregroundColor: textColor,
+        elevation: 0,
+        actions: const [Icon(Icons.menu)],
+        // title: const Text('Home page'),
       ),
       body: Center(
         child: ElevatedButton(
