@@ -11,8 +11,31 @@ class HomePage extends StatelessWidget {
         backgroundColor: backgroundColor,
         foregroundColor: textColor,
         elevation: 0,
-        actions: const [Icon(Icons.menu)],
-        // title: const Text('Home page'),
+      ),
+      endDrawer: Drawer(
+        child: ListView(
+          children: [
+            const DrawerHeader(child: Text('FirstName LastName')),
+            TextButton(
+              onPressed: () {},
+              child: const ListTile(
+                title: Text('Profile'),
+              ),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: const ListTile(
+                title: Text('Settings'),
+              ),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: const ListTile(
+                title: Text('Logout'),
+              ),
+            ),
+          ],
+        ),
       ),
       body: Center(
         child: ElevatedButton(
