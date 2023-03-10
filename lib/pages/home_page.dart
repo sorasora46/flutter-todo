@@ -8,10 +8,18 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: backgroundColor,
-        foregroundColor: textColor,
-        elevation: 0,
-      ),
+          backgroundColor: backgroundColor,
+          foregroundColor: textColor,
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              Icon(Icons.check_circle_outline),
+              Text('To-Do Application')
+            ],
+          )),
       endDrawer: Drawer(
         child: ListView(
           children: [
