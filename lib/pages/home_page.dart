@@ -15,23 +15,53 @@ class HomePage extends StatelessWidget {
       endDrawer: Drawer(
         child: ListView(
           children: [
-            const DrawerHeader(child: Text('FirstName LastName')),
+            const DrawerHeader(
+                child: Text('FirstName LastName',
+                    style: TextStyle(fontWeight: FontWeight.bold))),
             TextButton(
               onPressed: () {},
-              child: const ListTile(
-                title: Text('Profile'),
+              child: ListTile(
+                title: Row(
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.only(right: 10),
+                        child: const Icon(Icons.person)),
+                    const Text('Profile',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                  ],
+                ),
               ),
             ),
             TextButton(
               onPressed: () {},
-              child: const ListTile(
-                title: Text('Settings'),
+              child: ListTile(
+                title: Row(
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.only(right: 10),
+                        child: const Icon(Icons.settings)),
+                    const Text('Settings',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                  ],
+                ),
               ),
             ),
             TextButton(
               onPressed: () {},
-              child: const ListTile(
-                title: Text('Logout'),
+              child: ListTile(
+                title: Row(
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.only(right: 10),
+                        child:
+                            const Icon(Icons.logout, color: Colors.redAccent)),
+                    const Text(
+                      'Logout',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.redAccent),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
