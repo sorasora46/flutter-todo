@@ -67,13 +67,8 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back'),
-        ),
+      body: const Center(
+        child: Text('Hello there!'),
       ),
     );
   }
