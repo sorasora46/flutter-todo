@@ -21,6 +21,10 @@ class HomePage extends StatelessWidget {
             ],
           )),
       endDrawer: Drawer(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
+        ),
         child: ListView(
           children: [
             const DrawerHeader(
