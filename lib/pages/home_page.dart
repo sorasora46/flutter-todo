@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_todo/constants/colors.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, required this.items});
+
+  final List<String> items;
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +81,32 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: const Center(
-        child: Text('Hello there!'),
+      body: Container(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TextFormField(
+              decoration: const InputDecoration(
+                icon: Icon(Icons.edit_square),
+                label: Text('Task'),
+                hintText: 'Enter your task',
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: items.length,
+                  prototypeItem: ListTile(
+                    title: Text(items.first),
+                  ),
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(items[index]),
+                    );
+                  }),
+            )
+          ],
+        ),
       ),
     );
   }
