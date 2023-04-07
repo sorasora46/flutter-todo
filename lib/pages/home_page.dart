@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/components/custom_drawer.dart';
 import 'package:flutter_todo/constants/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,65 +30,7 @@ class _HomePageState extends State<HomePage> {
               Text('To-Do Application')
             ],
           )),
-      endDrawer: Drawer(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
-        ),
-        child: ListView(
-          children: [
-            const DrawerHeader(
-                child: Text('FirstName LastName',
-                    style: TextStyle(fontWeight: FontWeight.bold))),
-            TextButton(
-              onPressed: () {},
-              child: ListTile(
-                title: Row(
-                  children: [
-                    Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        child: const Icon(Icons.person)),
-                    const Text('Profile',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                  ],
-                ),
-              ),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: ListTile(
-                title: Row(
-                  children: [
-                    Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        child: const Icon(Icons.settings)),
-                    const Text('Settings',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                  ],
-                ),
-              ),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: ListTile(
-                title: Row(
-                  children: [
-                    Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        child:
-                            const Icon(Icons.logout, color: Colors.redAccent)),
-                    const Text(
-                      'Logout',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.redAccent),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      endDrawer: const CustomDrawer(),
       body: Container(
         padding: const EdgeInsets.all(20),
         child: Column(
