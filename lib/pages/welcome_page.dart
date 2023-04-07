@@ -58,10 +58,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomePage(
-                                      items: List<String>.generate(
-                                          100, (index) => 'Item $index'),
-                                    )));
+                                builder: (context) => const HomePage()));
                       },
                       child: const Text('Let\'s Start',
                           style: TextStyle(fontWeight: FontWeight.bold)),
