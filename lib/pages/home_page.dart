@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/constants/colors.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key, required this.items});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
-  final List<String> items;
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final _formKey = GlobalKey<FormState>();
+  final formController = TextEditingController();
+  final List<Task> items = [];
 
   @override
   Widget build(BuildContext context) {
@@ -87,21 +94,58 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TextFormField(
+              key: _formKey,
+              controller: formController,
+              onFieldSubmitted: (value) {
+                setState(() {
+                  if (value == "") return;
+                  formController.text = "";
+                  items.add(Task(isChecked: false, task: value));
+                });
+              },
               decoration: const InputDecoration(
-                icon: Icon(Icons.edit_square),
-                label: Text('Task'),
-                hintText: 'Enter your task',
-              ),
+                  icon: Icon(Icons.edit_square),
+                  label: Text('Task'),
+                  hintText: 'Enter your task',
+                  hintStyle: TextStyle(color: Colors.redAccent)),
             ),
             Expanded(
               child: ListView.builder(
                   itemCount: items.length,
-                  prototypeItem: ListTile(
-                    title: Text(items.first),
-                  ),
                   itemBuilder: (context, index) {
+                    Task task = items[index];
                     return ListTile(
-                      title: Text(items[index]),
+                      leading: Checkbox(
+                        value: task.isChecked,
+                        fillColor: MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                          if (states.contains(MaterialState.disabled)) {
+                            return Colors.redAccent.withOpacity(.32);
+                          }
+                          return Colors.redAccent;
+                        }),
+                        onChanged: (bool? value) {
+                          setState(() {
+                            task.isChecked = !task.isChecked;
+                          });
+                        },
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(
+                          Icons.delete,
+                          color: Colors.redAccent,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            items.removeAt(index);
+                          });
+                        },
+                      ),
+                      title: Text(task.task,
+                          style: TextStyle(
+                              decoration: task.isChecked
+                                  ? TextDecoration.lineThrough
+                                  : TextDecoration.none)),
                     );
                   }),
             )
@@ -110,4 +154,11 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+}
+
+class Task {
+  Task({required this.task, required this.isChecked});
+
+  final String task;
+  bool isChecked;
 }
