@@ -9,6 +9,7 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: const CustomAppBar(),
+        endDrawer: const CustomDrawer(),
         body: TextButton(
           child: const Text('Settings Page'),
           onPressed: () {
