@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/components/custom_drawer.dart';
+import 'package:flutter_todo/components/custom_appbar.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -6,9 +8,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Profile Page'),
-        ),
+        appBar: const CustomAppBar(),
         body: TextButton(
           child: const Text('Profile Page'),
           onPressed: () {

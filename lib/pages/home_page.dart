@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/components/custom_drawer.dart';
-import 'package:flutter_todo/constants/colors.dart';
+import 'package:flutter_todo/components/custom_appbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,19 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: backgroundColor,
-          foregroundColor: textColor,
-          elevation: 0,
-          automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: const [
-              Icon(Icons.check_circle_outline),
-              Text('To-Do Application')
-            ],
-          )),
+      appBar: const CustomAppBar(),
       endDrawer: const CustomDrawer(),
       body: Container(
         padding: const EdgeInsets.all(20),

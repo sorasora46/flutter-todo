@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/components/custom_drawer.dart';
+import 'package:flutter_todo/components/custom_appbar.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -6,7 +8,7 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Settings Page')),
+        appBar: const CustomAppBar(),
         body: TextButton(
           child: const Text('Settings Page'),
           onPressed: () {
