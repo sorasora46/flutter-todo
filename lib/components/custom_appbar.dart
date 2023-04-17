@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_todo/constants/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key})
+  const CustomAppBar({super.key, this.showLeading = true})
       : preferredSize = const Size.fromHeight(kToolbarHeight);
+
+  final bool showLeading;
 
   @override
   final Size preferredSize;
@@ -14,7 +16,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         backgroundColor: backgroundColor,
         foregroundColor: textColor,
         elevation: 0,
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: showLeading,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
