@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/constants/colors.dart';
-import 'package:flutter_todo/pages/home_page.dart';
+import 'package:flutter_todo/pages/signin_page.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -18,6 +18,7 @@ class _WelcomePageState extends State<WelcomePage> {
             foregroundColor: textColor,
             centerTitle: true,
             elevation: 0,
+            automaticallyImplyLeading: false,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
@@ -55,10 +56,10 @@ class _WelcomePageState extends State<WelcomePage> {
                     height: 40,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const HomePage()));
+                                builder: (context) => const SignInPage()));
                       },
                       child: const Text('Let\'s Start',
                           style: TextStyle(fontWeight: FontWeight.bold)),
