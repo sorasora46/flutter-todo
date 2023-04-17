@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(showLeading: false),
       endDrawer: const CustomDrawer(),
       body: Container(
         padding: const EdgeInsets.all(20),
