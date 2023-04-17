@@ -18,47 +18,37 @@ class CustomDrawer extends StatelessWidget {
               child: Text('FirstName LastName',
                   style: TextStyle(fontWeight: FontWeight.bold))),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Profile()));
+            },
             child: ListTile(
               title: Row(
                 children: [
                   Container(
                       margin: const EdgeInsets.only(right: 10),
                       child: const Icon(Icons.person)),
-                  TextButton(
-                    child: const Text('Profile',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black)),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Profile()));
-                    },
-                  )
+                  const Text('Profile',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black))
                 ],
               ),
             ),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Settings()));
+            },
             child: ListTile(
               title: Row(
                 children: [
                   Container(
                       margin: const EdgeInsets.only(right: 10),
                       child: const Icon(Icons.settings)),
-                  TextButton(
-                    child: const Text('Settings',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black)),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Settings()));
-                    },
-                  ),
+                  const Text('Settings',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black)),
                 ],
               ),
             ),
