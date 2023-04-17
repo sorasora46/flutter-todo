@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/pages/profile_page.dart';
 import 'package:flutter_todo/pages/settings_page.dart';
+import 'package:flutter_todo/pages/welcome_page.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -54,7 +56,11 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const WelcomePage()));
+            },
             child: ListTile(
               title: Row(
                 children: [
