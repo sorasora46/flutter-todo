@@ -12,14 +12,19 @@ class SignInForm extends StatefulWidget {
 
 class _SignInFormState extends State<SignInForm> {
   bool _loading = false;
+  bool _loginFail = false;
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  // TODO check fail login from Firebase
   void handleLogin() async {
     if (!_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Please enter your email/password')));
+      setState(() {
+        _loginFail = true;
+      });
       return;
     }
     final String email = emailController.value.text;
@@ -89,10 +94,12 @@ class _SignInFormState extends State<SignInForm> {
                 ElevatedButton(
                     onPressed: () {
                       handleLogin();
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomePage()));
+                      if (!_loginFail) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()));
+                      }
                     },
                     child: _loading
                         ? const SizedBox(
